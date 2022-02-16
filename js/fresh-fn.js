@@ -1,36 +1,36 @@
 // 1: 📱 function for plus & minus case & phone:
-function updateCaseNumber(product, price, isIncreasing) {
-    const caseInput = document.getElementById(product +'-number');
-    const caseNumberText = caseInput.value;
-    let caseNumber = parseInt(caseNumberText);
+function updateNumber(product, price, isIncreasing) {
+    const input = document.getElementById(product +'-number');
+    const numberText = input.value;
+    let number = parseInt(numberText);
     if(isIncreasing) {
-       caseNumber = caseNumber+1;
+       number = number+1;
     }
-    else if(caseNumber> 0){
-       caseNumber = caseNumber-1;
+    else if(number> 0){
+       number = number-1;
     }
-    caseInput.value = caseNumber;
-    const caseTotal = document.getElementById(product +'-total');
-    caseTotal.innerText = caseNumber * price;
-    console.log(caseInput.value);
+    input.value = number;
+    const total = document.getElementById(product +'-total');
+    total.innerText = number * price;
+    console.log(input.value);
  }
  // 1: phone plus system: add event listener:
  document.getElementById('phone-plus').addEventListener('click', function(){
     // fn calling
-    updateCaseNumber('phone', 100, true);
+    updateNumber('phone', 100, true);
  })   
- // 2: phone deduct system: add event listener: 
+ // 2: phone deduct system: add event 
  document.getElementById('phone-minus').addEventListener('click', function(){
     // fn calling
-    updateCaseNumber('phone', 100, false);
+    updateNumber('phone', 100, false);
  })
- // 1: cass plus event listener :
+ // 1: cass plus: add event listener :
  document.getElementById('case-plus').addEventListener('click', function(){
     // fn calling
-    updateCaseNumber('case', 5, true);
+    updateNumber('case', 5, true);
  })   
- // 2: case deduct event listener :
+ // 2: case deduct: add event listener :
  document.getElementById('case-minus').addEventListener('click', function(){
     // fn calling
-    updateCaseNumber('case', 5, false)
+    updateNumber('case', 5, false)
  })
