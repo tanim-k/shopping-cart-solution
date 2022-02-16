@@ -12,8 +12,30 @@ function updateNumber(product, price, isIncreasing) {
     input.value = number;
     const total = document.getElementById(product +'-total');
     total.innerText = number * price;
-    console.log(input.value);
+   // calculate total:
+   calculateTotal();
+
  }
+//  2: function
+function getInputValue(product) {
+   const productInput = document.getElementById(product +'-number');
+   const productNumber = parseInt(productInput.value);
+   return productNumber;
+}
+// 3: function
+function calculateTotal() {
+   const phoneTotal = getInputValue('phone') * 100;
+   const caseTotal = getInputValue('case') * 5;
+   const subTotal = phoneTotal + caseTotal;
+   const taxTotal = subTotal / 10 ;
+   const grandTotal = subTotal + taxTotal;
+   // console.log(subTotal);
+   // update on the html:
+   document.getElementById('sub-total').innerText = subTotal;
+   document.getElementById('tax-total').innerText = taxTotal;
+   document.getElementById('grand-total').innerText = grandTotal;
+
+}
  // 1: phone plus system: add event listener:
  document.getElementById('phone-plus').addEventListener('click', function(){
     // fn calling
